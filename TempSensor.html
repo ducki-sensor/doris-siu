@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Sensor | Doris Siu</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">DoriSiu</a>
+
+        <input type="checkbox" id="nav-trigger" class="menu-toggle">
+        <label for="nav-trigger" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#project">Project Menu</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact" class="nav-contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero-split">
+            <div class="hero-content">
+                <h1>Temperature Sensor</h1>
+                
+                <div class="tag-cloud">
+                    <span class="tag">Arduino IDE</span>
+                    <span class="tag">Onshape</span>
+                    <span class="tag">Circuit Design</span>
+                    <span class="tag">3D Printing</span>
+                    <span class="tag">Analog-to-Digital Conversion</span>
+                    <span class="tag">Soldering</span>
+                    <span class="tag">Infill Optimization</span>
+                </div>
+
+                <p>The objective was to design a temperature-sensing device that provides audio and visual alerts when readings drift outside the 70°F - 75°F range. I programmed the Arduino Uno logic and performed all component integration, including soldering wiring for durable electrical connections. The system utilizes a TMP36 sensor for temperature sensing and an I2C LCD for real-time display, with alerts delivered via a red LED and piezo buzzer.</p>
+                <p>The device achieved its goals of accurate temperature measurement and effective notifications. However, its size and limited battery life pose challenges for portability and long-term use. Future improvements will focus on reducing size and enhancing battery efficiency. The system is valuable for applications in homes, offices, and environments requiring precise temperature control.</p>
+
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <label>Role</label>
+                        <span>Everything</span>
+                    </div>
+                    <div class="spec-item">
+                        <label>Timeline</label>
+                        <span>Sep-Dec 2024</span>
+                    </div>
+                    <div class="spec-item">
+                        <label>Project Type</label>
+                        <span>Academic (ENG EK131)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-img">
+                <img src="PortPhotos/close-temp-noback.png" alt="Temperature Sensor Prototype">
+            </div>
+        </section>
+
+        <section class="details">
+            <h3>Techanical Report</h3>
+            <p>For a detailed technical breakdown, you can view my project report linked below:</p>
+            <ul class="detail-list">
+                <li><a href="Papers/EK131 Final Report.pdf" style="color: #c974a0;">Temperature Sensor Report</a></li>
+            </ul>
+
+            <h3>CAD and Assembly Highlight</h3>
+            
+            <div class="media-wrap">
+                <img src="PortPhotos/CADtempSense.png" alt="Onshape assembly">
+                <p>Figure 1: Modeled assembly of all components on Onshape</p>
+            </div>
+
+            <div class="media-wrap">
+                <img src="PortPhotos/open-temp-sense.jpg" alt="Actual assembly">
+                <p>Figure 2: Actual assembly of all components within enclosure</p>
+            </div>
+
+    </main>
+
+    <footer class="nav-footer">
+        <a href="index.html#project">❮ Project Menu</a>
+    </footer>
+
+</body>
+</html>
