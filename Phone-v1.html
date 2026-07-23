@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion-Tracking Phone Holder v1 | Doris Siu</title>
+    <link rel="stylesheet" href="style.css">
+</head> 
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">D.SIU</a>
+        <input type="checkbox" id="nav-trigger" class="menu-toggle">
+        <label for="nav-trigger" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#project">Project Menu</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact" class="nav-contact">Contact</a>
+        </div>
+    </nav>
+
+    <footer class="header">
+            <a href="PhoneMount.html"> &#x276E; Phone Holder Main Page</a>
+            <a href="Phone-v2.html">v2.0 &#x276F;</a>
+        </footer>
+
+
+    <main class="container">
+        
+        <section class="hero-split">
+            <div class="hero-version">
+                <h1>Phone Holder v1.0</h1>
+                <p>August 2025</p>
+
+                <div class="rec-box">
+                    <h3>Recognition</h3>
+                    <p>Project featured in Boston University College of Engineering BTEC-SILab Newsletter (Sept 2025 Edition)</p>
+                    <img src="PortPhotos/silabNOimg.png" alt="SILab-BTEC Newsletter">
+                </div>
+
+            </div>
+
+            <div class="hero-img">
+                <img src="PortPhotos/phone-mount-noback.png" alt="Motion Tracking Phone Mount">
+            </div>
+
+        </section>
+
+        
+        <section class="details">
+
+            <h3>Objectives</h3>
+            <div class="table-container">
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>Objective</th>
+                            <th>Metric</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Portability</td>
+                            <td>Easily transportable to practice rooms or competitions</td>
+                        </tr>
+                        <tr>
+                            <td>Tracking Precision</td>
+                            <td>&#177;10&deg; angular deviation from subject position</td>
+                        </tr>
+                        <tr>
+                            <td>Budget</td>
+                            <td>&lt; &dollar;150 BOM</td>
+                        </tr>
+                        <tr>
+                            <td>Stability and Load Support</td>
+                            <td>Support weight of standard cellphone + any accessories, approx. 250g, and ensure filming quality when rotating</td>
+                        </tr>
+                        <tr>
+                            <td>Autonomous</td>
+                            <td>Untethered & able to identify/follow subject without manual control</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>System Architecture</h3>
+            <p style="text-align: center;">The operation begins with the webcam capturing the position of the subject, which is digitized using Computer Vision. The Python program then maps the subject’s position into rotational degrees and the data is transmitted into an Arduino via serial communication. This gives direction to the servo motor as to how far to turn. To prevent the weight of the phone from straining the motor, the servo is connected to a driver gear that engages a series of idler gears on a vertical shaft. This gear setup ultimately turns a driven gear that has a phone holder attached.</p>
+            <p style="text-align: center;">The plan was to have the device be autonomous and operate untethered (I will explain later in the results why this never happened for v1), which was supposed be achieved by using a Raspberry Pi 5 and 9V batteries. The housing is fabricated from 3D-printed PLA and laser-cut 6mm acrylic parts. To account for phone accessories (such as the PopSocket on the back of my phone) and ensure the phone sits securely on the stand, I created a dual hollow-hemisphere holder design (as shown in Figure 2).</p>
+
+            <h3>Troubleshooting</h3>
+            <div class="table-container">
+                <table class="trouble-table">
+                    <thead>
+                        <tr>
+                            <th>Challenges with Initial Mockup</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vertical misalignment in y-axis between driver/driven gears and 2 small idler gears.</td>
+                            <td>Increased idler gear face width, turning dual-idler setup to 1 elongated idler gear, so the driver and driven gears would not lose contact with the idlers due misalignment in y-axis.</td>
+                        </tr>
+                        <tr>
+                            <td>Housing walls had narrow clearances, were too short, and had small surface area on top, which prevented secure attachment of laser-cut plates and interfered with gear rotation (Figure 1).</td>
+                            <td>Adjusted walls to have more internal clearance, height, and top surface area to accommodate laser-cut interface and gear rotation.</td>
+                        </tr>
+                        <tr>
+                            <td>Gap between driven gear and small gear in x axis (Figure 1).</td>
+                            <td>Remeasured and corrected dimensions in Solidworks so the gears line up.</td>
+                        </tr>
+                        <tr>
+                            <td>Holder design featured asymmetric wall heights: 1 wall shortened to prevent potential occlusion of the phone's wide-angle camera lens. But this reduced mechanical contact area, leading to instability during high-speed servo tracking (Figure 2).</td>
+                            <td>Conducted Field-of-View audit using the physical mockup & discovered full-height wall on both sides would not interfere with the camera's optical path; Redesigned holder with symmetrical wall heights.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="media-wrap">
+                    <img src="PortPhotos/PhoneMAxesLabeled.jpg" alt="Phone Mount Labeled">
+                    <p>Figure 1: Initial mockup with defined axes and challenging parts pointed out.</p>
+            </div>
+
+            <div class="media-wrap">
+                    <img src="PortPhotos/InititalMountDesign.jpg" alt="Initial Phone Mount Design">
+                    <p>Figure 2: Initial hollow-hemisphere holder design with asymmetric wall heights (CAD and mockup).</p>
+            </div>
+
+            <h3>Result & Discussion</h3>
+            
+            <h4>Metric Achievements</h4>
+            <ul class="detail-list">
+                <li>The combination of webcam, computer vision, Arduino, and servo motor achieved the effect of motion-tracking I planned.</li>
+                <li>The phone holder turned with subject within ~6ft; however, it does not function well when there are other moving subjects around that distracts it from the main subject I wish to capture.</li>
+                <li>The phone and its accessories are held securely in the dual-hemisphere holder design. The video filmed by the phone in the stand is not shaky and is of quality.</li>
+                <li>The project is completed within budget.</li>
+            </ul>
+
+            <div class="media-wrap">
+                <video controls autoplay muted playsinline>
+                    <source src="PortVideos/PhoneHolderDemoConverted.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p style="max-width: 400px;">Video: Demostration of motion-tracking phone holder function</p>
+            </div>
+
+            <h4>What Didn't Worked</h4>
+            <ul class="detail-list">
+                <li>University wifi had a firewall that disabled Raspberry Pi usage, so the device never became fully autonomous as I defined it.</li>
+                <li>Later discovered that Raspberry Pi 5 only accepts 5V power input. So even though 9V battery works for powering Arduino Uno, I needed another method for the whole system to run.</li>
+                <li>Angular deviation roughly &#177;20&deg; from centriode of moving object, which is 10&deg; more than my original goal.</li>
+                <li>The housing design is too bulky and “boxy” for transport.</li>
+            </ul>
+
+            <h4>Lessons I learned</h4>
+            <ul class="detail-list">
+                <li>Importance of assembly before printing out the physical part → helps visualize the shortcomings of my design before physically producing the parts just to realize they don't fit together properly and wasting materials</li>
+                <li>I was sketching and printing laser cut parts from Adobe Illustrator; but I can sketch laser cut parts in CAD too → better visualization when assembling the parts together; sketch can also be exported as DXF/DWG to be laser cut</li>
+                <li>Importance of checking electronic specs. This way I would've found out sooner that 9V battery alone would not work to power the system.</li>
+            </ul>
+
+            <h4>Future Improvements</h4>
+            <ul class="detail-list">
+                <li>Design more concise and rounded housing: The current device is too big and all the components are exposed, making it difficult to carry around. I would make a smaller enclosure and conceal internal electronics, allowing it to be more transportable. Additionally, I would transition to a more rounded design to make the device more ergonomic and to increase structural integrity.</li>
+                <li>Use a USB power bank (with 5V output) or other 5V sources to power Raspberry Pi and Arduino.</li>
+                <li>Possibly install more webcams around the device to achieve a 360&deg; tracking.</li>
+            </ul>
+            
+        </section>
+
+    </main>
+
+    
+
+    <footer class="nav-footer" style="margin-top: 0;">
+        <a href="PhoneMount.html"> &#x276E; Phone Holder Main Page</a>
+        <a href="Phone-v2.html">v2.0 &#x276F;</a>
+    </footer>
+
+</body>
+</html>

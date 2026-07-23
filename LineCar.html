@@ -11,7 +11,7 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="logo">DoriSiu</a>
+        <a href="index.html" class="logo">D.SIU</a>
         <input type="checkbox" id="nav-trigger" class="menu-toggle">
         <label for="nav-trigger" class="hamburger">
             <span></span>
@@ -101,6 +101,10 @@
             
             <h3>Technical Specification (BOM)</h3>
                 <p><strong>Microcontroller:</strong> Arduino Uno (logic processing and integration of sensors and motor).</p>
+                <p><strong>Sensors:</strong> Infrared (IR) array for path tracking; Ultrasonic sensor for proximity detection.</p>
+                <p><strong>Power System:</strong> 9V battery</p>
+                <p><strong>Actuation:</strong> 4 DC motors (2 are driven)</p>
+
                 <div class="media-wrap">
                     <img src="PortPhotos/210logicmap.png" alt="Logic Map">
                     <p>Figure 1: Logic map showing the system decision making process</p>
@@ -109,10 +113,7 @@
                     <img src="PortPhotos/210wiring.png" alt="Wiring">
                     <p>Figure 2: Model of the circuit wiring. This was the preliminary design with 2 DC motors and 2 servo motors instead of 4 DC motors in final design.</p>
                 </div>
-
-                <p><strong>Sensors:</strong> Infrared (IR) array for path tracking; Ultrasonic sensor for proximity detection.</p>
-                <p><strong>Power System:</strong> 9V battery</p>
-                <p><strong>Actuation:</strong> 4 DC motors (2 are driven)</p>
+                
 
                 <h3>Housing Design</h3>
                 <p>I led the structural design of the vehicle, implementing a hybrid chassis architecture. This included a laser-cut 3mm acrylic and wood base integrated with a dedicated enclosure for cable management and custom 3D-printed housing for sensors.</p>
@@ -167,7 +168,7 @@
 
                 <div class="media-wrap">
                     <video controls autoplay muted playsinline>
-                        <source src="PortVids/LineCarDemoConverted.mp4" type="video/mp4">
+                        <source src="PortVideos/LineCarDemoConverted.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p>Video demo of line-following car final product</p>
